@@ -21,7 +21,6 @@
       "ES2019",
       "DOM"
     ],
-    "ignoreDeprecations": "5.0",
   },
 
   "references": [
