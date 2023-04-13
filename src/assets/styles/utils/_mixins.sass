@@ -1,0 +1,42 @@
+@mixin transition($transition: all, $duration: $transition-duration)
+  transition-property: $transition
+  transition-duration: $duration
+  transition-timing-function: ease-in
+
+@mixin ui-space($direction, $size)
+  @if ($direction == top)
+    margin-top: $ui-step * $size
+
+  @if ($direction == bottom)
+    margin-bottom: $ui-step * $size
+
+  @if ($direction == left)
+    margin-left: $ui-step * $size
+
+  @if ($direction == right)
+    margin-right: $ui-step * $size
+
+  @if ($direction == gap)
+    gap: $ui-step * $size
+
+@mixin breakpoint($breakpoint, $direction)
+  @if map-has-key($breakpoints, $breakpoint)
+    $breakpoint-value: map-get($breakpoints, $breakpoint)
+
+    @if ($direction == min)
+      @media (min-width: $breakpoint-value)
+        @content
+
+    @else
+      @media (max-width: $breakpoint-value)
+        @content
+
+  @else
+    @warn 'Invalid breakpoint: #{$breakpoint}.'
+
+@mixin font-face($font-name, $path, $weight: normal, $style: normal)
+  @font-face
+    font-family: quote($font-name)
+    src: url($path+".woff2") format("woff2"), url($path+".woff") format("woff")
+    font-weight: $weight
+    font-style: $style

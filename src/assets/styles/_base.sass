@@ -1,0 +1,75 @@
+@include font-face('3270', '@/assets/fonts/3270')
+
+*, *::before, *::after
+  box-sizing: border-box
+
+html
+  font-size: $base-font-size
+  font-family: 'Montserrat', sans-serif
+  color: $light-color
+  font-weight: 400
+  background-color: $dark-color
+  scroll-behavior: smooth
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+
+  @breakpoint('md')
+    max-width: 600px
+    width: 100%
+
+.main-title
+  font-weight: 700
+  font-size: rem($ui-step-outer*6)
+  line-height: 100%
+
+  @breakpoint('md')
+    font-size: rem($ui-step-outer*4)
+
+.main-text
+  font-size: rem($ui-step-outer*3)
+  line-height: 150%
+
+  @breakpoint('md')
+    font-size: rem($ui-step-outer*2)
+
+.section
+  +ui-space(top, 12)
+  +ui-space(bottom, 12)
+  border: 1px solid $light-color
+
+.section-title
+  font-family: '3270'
+  font-weight: 500
+  font-size: rem($ui-step-outer*4)
+  line-height: 100%
+  text-transform: uppercase
+
+  @breakpoint('md')
+    font-size: rem($ui-step-outer*2)
+
+.text
+  font-size: rem($ui-step-inner*4)
+  line-height: 100%
+
+  @breakpoint('md')
+    font-size: rem($ui-step-inner*3)
+
+.date
+  font-size: rem($ui-step-inner*3)
+
+.title
+  font-weight: 700
+  font-size: rem($ui-step-outer*3)
+  line-height: 130%
+
+  @breakpoint('md')
+    font-size: rem($ui-step-outer*2)
+
+.link
+  font-size: rem($ui-step-inner*4)
+  text-transform: uppercase
+
+.caption
+  font-size: rem($ui-step-inner*3)

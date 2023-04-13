@@ -1,6 +1,10 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
@@ -21,8 +25,8 @@
       "ES2019",
       "DOM"
     ],
+    "ignoreDeprecations": "5.0",
   },
-
   "references": [
     {
       "path": "./tsconfig.node.json"
