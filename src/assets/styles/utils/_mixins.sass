@@ -19,7 +19,7 @@
   @if ($direction == gap)
     gap: $ui-step * $size
 
-@mixin breakpoint($breakpoint, $direction)
+@mixin breakpoint($breakpoint, $direction: max)
   @if map-has-key($breakpoints, $breakpoint)
     $breakpoint-value: map-get($breakpoints, $breakpoint)
 
@@ -40,3 +40,15 @@
     src: url($path+".woff2") format("woff2"), url($path+".woff") format("woff")
     font-weight: $weight
     font-style: $style
+
+@mixin border($border-size: $border-size-inner, $direction: all)
+  @if ($direction == vertical)
+    border-top: $border-size solid $light-color
+    border-bottom: $border-size solid $light-color
+
+  @if ($direction == horizontal)
+    border-left: $border-size solid $light-color
+    border-right: $border-size solid $light-color
+
+  @if ($direction == all)
+    border: $border-size solid $light-color

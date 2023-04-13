@@ -11,65 +11,83 @@ html
   background-color: $dark-color
   scroll-behavior: smooth
 
+#app
+  width: 100%
+  padding: $ui-step-outer * 2
+
+  +breakpoint('md')
+    padding: $ui-step-outer
+
+.main
+  +border($border-size-outer)
+  padding-top: $ui-step-outer * 6
+
+  +breakpoint('md')
+    padding-top: $ui-step-outer * 3
+
 .container
   max-width: 1200px
   margin: 0 auto
 
-  @breakpoint('md')
+  +breakpoint('md')
     max-width: 600px
     width: 100%
 
 .main-title
   font-weight: 700
-  font-size: rem($ui-step-outer*6)
+  font-size: rem($ui-step-outer * 6)
   line-height: 100%
 
-  @breakpoint('md')
-    font-size: rem($ui-step-outer*4)
+  +breakpoint('md')
+    font-size: rem($ui-step-outer * 4)
 
 .main-text
-  font-size: rem($ui-step-outer*3)
+  font-size: rem($ui-step-inner * 5)
   line-height: 150%
 
-  @breakpoint('md')
-    font-size: rem($ui-step-outer*2)
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 4)
 
 .section
-  +ui-space(top, 12)
-  +ui-space(bottom, 12)
-  border: 1px solid $light-color
+  +ui-space(top, 24)
+  +ui-space(bottom, 24)
+  +border
+
+  +breakpoint('md')
+    +ui-space(top, 12)
+    +ui-space(bottom, 12)
 
 .section-title
   font-family: '3270'
   font-weight: 500
-  font-size: rem($ui-step-outer*4)
+  font-size: rem($ui-step-outer * 4)
   line-height: 100%
   text-transform: uppercase
 
-  @breakpoint('md')
-    font-size: rem($ui-step-outer*2)
+  +breakpoint('md')
+    font-size: rem($ui-step-outer * 2)
 
 .text
-  font-size: rem($ui-step-inner*4)
+  font-size: rem($ui-step-inner * 4)
   line-height: 100%
 
-  @breakpoint('md')
-    font-size: rem($ui-step-inner*3)
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 3)
 
 .date
-  font-size: rem($ui-step-inner*3)
+  font-size: rem($ui-step-inner * 3)
 
 .title
   font-weight: 700
-  font-size: rem($ui-step-outer*3)
+  font-size: rem($ui-step-outer * 3)
   line-height: 130%
 
-  @breakpoint('md')
-    font-size: rem($ui-step-outer*2)
+  +breakpoint('md')
+    font-size: rem($ui-step-outer * 2)
 
 .link
-  font-size: rem($ui-step-inner*4)
+  font-size: rem($ui-step-inner * 4)
   text-transform: uppercase
 
 .caption
-  font-size: rem($ui-step-inner*3)
+  font-size: rem($ui-step-inner * 3)
