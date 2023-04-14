@@ -1,0 +1,125 @@
+@include font-face('3270', '@/assets/fonts/3270')
+
+*, *::before, *::after
+  box-sizing: border-box
+
+html
+  font-size: $base-font-size
+  font-family: 'Montserrat', sans-serif
+  color: $light-color
+  font-weight: 400
+  background-color: $dark-color
+  scroll-behavior: smooth
+
+#app
+  width: 100%
+  padding: $ui-step-outer * 2
+
+  +breakpoint('md')
+    padding: $ui-step-outer
+
+.main
+  +border($border-thick)
+  padding-top: $ui-step-outer * 6
+
+  +breakpoint('md')
+    padding-top: $ui-step-outer * 3
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+
+  +breakpoint('md')
+    max-width: 600px
+    width: 100%
+
+.main-title
+  font-weight: 700
+  font-size: rem($ui-step-outer * 6)
+  line-height: 100%
+
+  +breakpoint('md')
+    font-size: rem($ui-step-outer * 4)
+
+.main-text
+  font-size: rem($ui-step-inner * 5)
+  line-height: 150%
+
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 4)
+
+.section
+  +border($border-thin, vertical)
+  padding: $ui-step-outer * 6 0
+
+  +breakpoint('md')
+    padding: $ui-step-outer * 3 $ui-step-outer
+
+.section-title
+  +ui-space(bottom, 8)
+
+  font-family: '3270'
+  font-weight: 500
+  font-size: rem($ui-step-outer * 4)
+  line-height: 100%
+  text-transform: uppercase
+  display: flex
+  align-items: center
+
+  +breakpoint('md')
+    +ui-space(bottom, 5)
+
+  &::before
+    +ui-space(right, 4)
+    content: '\005B'
+
+  &::after
+    +ui-space(left, 4)
+    content: '\005D'
+
+  +breakpoint('md')
+    font-size: rem($ui-step-outer * 2)
+
+.text
+  font-size: rem($ui-step-inner * 4)
+  line-height: 130%
+
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 3)
+
+.date
+  font-size: rem($ui-step-inner * 3)
+
+.title
+  font-weight: 700
+  font-size: rem($ui-step-outer * 3)
+  line-height: 130%
+
+  +breakpoint('md')
+    font-size: rem($ui-step-outer * 2)
+
+.link
+  font-size: rem($ui-step-inner * 4)
+  text-transform: uppercase
+  color: inherit
+
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 3)
+
+.caption
+  font-size: rem($ui-step-inner * 3)
+  text-transform: uppercase
+
+.button
+  background-color: transparent
+  color: inherit
+  font-size: rem($ui-step-inner * 5)
+  line-height: 100%
+  text-transform: uppercase
+  padding: $ui-step-inner * 3
+  width: 100%
+  text-align: center
+  cursor: pointer
+
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 3)
