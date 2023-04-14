@@ -8,3 +8,5 @@ export const stack: string[] = [
   'nuxt',
   'graphql',
 ];
+
+export const LOGIN = 'ilon-mars';

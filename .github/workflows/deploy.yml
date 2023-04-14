@@ -51,3 +51,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        env:
+          GRAPHQL_TOKEN: ${{ secrets.GRAPHQL_TOKEN }}
+        env_var: ${{ vars.GRAPHQL_ENDPOINT }}
