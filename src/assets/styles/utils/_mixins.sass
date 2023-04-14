@@ -41,7 +41,7 @@
     font-weight: $weight
     font-style: $style
 
-@mixin border($border-size: $border-size-inner, $direction: all)
+@mixin border($border-size: $border-thin, $direction: all)
   @if ($direction == vertical)
     border-top: $border-size solid $light-color
     border-bottom: $border-size solid $light-color

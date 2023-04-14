@@ -19,8 +19,8 @@
 
 <style lang="sass">
 .cover
-  border-top: $border-size-outer solid $light-color
-  border-bottom: $border-size-inner solid $light-color
+  border-top: $border-thick solid $light-color
+  border-bottom: $border-thin solid $light-color
   padding: $ui-step-outer * 6 0
   position: relative
   min-height: 100vh

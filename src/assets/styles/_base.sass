@@ -19,7 +19,7 @@ html
     padding: $ui-step-outer
 
 .main
-  +border($border-size-outer)
+  +border($border-thick)
   padding-top: $ui-step-outer * 6
 
   +breakpoint('md')
@@ -49,13 +49,11 @@ html
     font-size: rem($ui-step-inner * 4)
 
 .section
-  +ui-space(top, 24)
-  +ui-space(bottom, 24)
-  +border
+  +border($border-thin, vertical)
+  padding: $ui-step-outer * 6 0
 
   +breakpoint('md')
-    +ui-space(top, 12)
-    +ui-space(bottom, 12)
+    padding: $ui-step-outer * 3 $ui-step-outer
 
 .section-title
   font-family: '3270'
@@ -88,6 +86,24 @@ html
 .link
   font-size: rem($ui-step-inner * 4)
   text-transform: uppercase
+  color: inherit
+
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 3)
 
 .caption
   font-size: rem($ui-step-inner * 3)
+
+.button
+  background-color: transparent
+  color: inherit
+  font-size: rem($ui-step-inner * 5)
+  line-height: 100%
+  text-transform: uppercase
+  padding: $ui-step-inner * 3
+  width: 100%
+  text-align: center
+  cursor: pointer
+
+  +breakpoint('md')
+    font-size: rem($ui-step-inner * 3)
