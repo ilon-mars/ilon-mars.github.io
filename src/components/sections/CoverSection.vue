@@ -5,7 +5,7 @@
         <figure class="avatar">
           <img :src="avatarUrl" :alt="name" class="avatar__image" />
 
-          <figcaption class="avatar__caption">{{ name }}</figcaption>
+          <figcaption class="avatar__caption">Me</figcaption>
         </figure>
       </div>
 
