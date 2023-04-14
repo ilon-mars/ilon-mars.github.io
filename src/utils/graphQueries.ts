@@ -4,6 +4,7 @@ export const getMe = (login: string) => {
       user(login: $login) {
         name
         bio
+        avatarUrl
       }
     }
   `;
