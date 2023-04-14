@@ -5,6 +5,8 @@ export const getMe = (login: string) => {
         name
         bio
         avatarUrl
+        url
+        email
       }
     }
   `;

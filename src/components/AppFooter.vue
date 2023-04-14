@@ -1,12 +1,44 @@
 <template>
   <footer class="footer">
     <div class="container footer__container">
-      <a href="" target="_blank" rel="noopener noreferrer" class="link">Телеграм</a>
-      <a href="" target="_blank" rel="noopener noreferrer" class="link">GitHub</a>
-      <a href="" target="_blank" rel="noopener noreferrer" class="link">Почта</a>
+      <a
+        v-for="{ name, link } in links"
+        :key="name"
+        :href="link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link"
+        >{{ name }}</a
+      >
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import { useState } from '@/hooks';
+import type { SocialLink } from '@/types';
+
+const { result } = useState();
+const { url, email } = result.user;
+
+const links: SocialLink[] = [
+  {
+    name: 'Телеграм',
+    link: 'https://t.me/ilon_mars',
+    tip: 'Написать',
+  },
+  {
+    name: 'GitHub',
+    link: url,
+    tip: 'Перейти в профиль',
+  },
+  {
+    name: 'Почта',
+    link: `mailto:${email}`,
+    tip: 'Написать',
+  },
+];
+</script>
 
 <style lang="sass">
 .footer
