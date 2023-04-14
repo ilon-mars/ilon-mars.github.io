@@ -52,3 +52,11 @@
 
   @if ($direction == all)
     border: $border-size solid $light-color
+
+@mixin glitchCopy
+  content: attr(data-text)
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%

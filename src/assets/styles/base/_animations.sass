@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 @keyframes noise
   0%
     transform: translate(0,0)
@@ -27,3 +29,23 @@
     background-position: 50% 100%
   100%
     background-position: 50% 0%
+
+@keyframes glitch-before
+  $steps: 20
+  @for $i from 0 through $steps
+    #{percentage($i * math.div(1, $steps))}
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0)
+      transform: skew((math.div(random(100), 100)) + deg)
+
+@keyframes glitch-after
+  $steps: 20
+  @for $i from 0 through $steps
+    #{percentage($i * math.div(1, $steps))}
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0)
+      transform: skew((math.div(random(100), 100)) + deg)
+
+@keyframes glitch-main
+  $steps: 10
+  @for $i from 0 through $steps
+    #{percentage($i * math.div(1, $steps))}
+      transform: skew((random(10) - 5) + deg)
