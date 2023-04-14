@@ -3,9 +3,11 @@ import CoverSection from '@/components/sections/CoverSection.vue';
 import StackSection from '@/components/sections/StackSection.vue';
 import RepoSection from '@/components/sections/RepoSection.vue';
 import AppFooter from '@/components/AppFooter.vue';
+import NoiseOverlay from '@/components/NoiseOverlay.vue';
 </script>
 
 <template>
+  <NoiseOverlay />
   <main class="main">
     <CoverSection />
     <StackSection />
