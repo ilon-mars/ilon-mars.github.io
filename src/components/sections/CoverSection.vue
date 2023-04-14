@@ -23,13 +23,14 @@
   border-bottom: $border-thin solid $light-color
   padding: $ui-step-outer * 6 0
   position: relative
-  min-height: 100vh
+  min-height: calc(100vh - $ui-step-outer * 12)
   display: flex
   flex-direction: column
   justify-content: center
 
   +breakpoint('md')
     padding: $ui-step-outer * 3 $ui-step-outer
+    height: initial
 
   &__container
     display: flex
