@@ -1,7 +1,7 @@
 <template>
   <section class="stack section">
     <div class="container stack__container">
-      <h2 class="section-title stack__title">Stack</h2>
+      <h2 class="section-title">Stack</h2>
 
       <StackList />
       <StackProjects />
@@ -19,20 +19,4 @@ import StackProjects from '@/components/stack/StackProjects.vue';
   &__container
     display: flex
     flex-direction: column
-
-  &__title
-    +ui-space(bottom, 8)
-    display: flex
-    align-items: center
-
-    +breakpoint('md')
-      +ui-space(bottom, 6)
-
-    &::before
-      +ui-space(right, 4)
-      content: '\005B'
-
-    &::after
-      +ui-space(left, 4)
-      content: '\005D'
 </style>
