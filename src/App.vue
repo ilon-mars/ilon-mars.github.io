@@ -2,6 +2,7 @@
 import CoverSection from '@/components/sections/CoverSection.vue';
 import StackSection from '@/components/sections/StackSection.vue';
 import RepoSection from '@/components/sections/RepoSection.vue';
+import AppFooter from '@/components/AppFooter.vue';
 </script>
 
 <template>
@@ -9,5 +10,6 @@ import RepoSection from '@/components/sections/RepoSection.vue';
     <CoverSection />
     <StackSection />
     <RepoSection />
+    <AppFooter />
   </main>
 </template>
