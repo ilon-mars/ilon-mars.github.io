@@ -12,17 +12,17 @@
   right: 0
   bottom: 0
   z-index: 100
-  opacity: 0.4
+  opacity: 0.3
   mix-blend-mode: difference
 
   &::before
     content: ''
     z-index: 101
     position: absolute
-    top: -50%
-    left: -50%
-    width: 200%
-    height: 200%
+    top: -100%
+    left: -100%
+    width: 300%
+    height: 300%
     background: url('@/assets/img/noise.webp') repeat 0 0
-    animation: 0.3s noise infinite
+    animation: 0.5s noise infinite steps(20)
 </style>
