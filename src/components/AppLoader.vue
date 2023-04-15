@@ -22,6 +22,8 @@ $gradient-6: rgb(61, 28, 73)
   display: flex
   justify-content: center
   align-items: center
+  position: relative
+  z-index: 10
 
   &__sunset
     position: relative
@@ -29,6 +31,7 @@ $gradient-6: rgb(61, 28, 73)
     height: $sunset-size
     background: linear-gradient(to bottom, $gradient-1, $gradient-2, $gradient-3, $gradient-4, $gradient-5, $gradient-6)
     border-radius: $sunset-size
+    z-index: 11
 
     &::before
       content: ''
@@ -37,7 +40,7 @@ $gradient-6: rgb(61, 28, 73)
   &__mirage
     position: absolute
     bottom: 0
-    z-index: 2
+    z-index: 12
     width: 100%
     height: 50%
     border-radius: 0px 0px $sunset-size $sunset-size

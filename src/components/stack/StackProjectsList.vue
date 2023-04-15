@@ -1,25 +1,23 @@
 <template>
   <ul class="projects__list">
-    <li v-for="project in projects" :key="project" class="projects__item">
-      <picture class="project">
-        <img class="project__img" />
-        <figcaption class="project__name">{{ project }}</figcaption>
+    <li v-for="project in projects" :key="project.name" class="projects__item">
+      <picture class="project" @click="selectProject(project.name)">
+        <img class="project__img" :src="project.openGraphImageUrl" :alt="project.description" />
+        <figcaption class="project__name">{{ project.name }}</figcaption>
       </picture>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-const projects = [
-  'project 1',
-  'project 2',
-  'project 3',
-  'project 4',
-  'project 5',
-  'project 6',
-  'project 7',
-  'project 8',
-];
+import { useStack } from '@/hooks';
+import type { StackRepoRaw } from '@/types';
+
+defineProps<{
+  projects: StackRepoRaw[];
+}>();
+
+const { selectProject } = useStack();
 </script>
 
 <style lang="sass">
