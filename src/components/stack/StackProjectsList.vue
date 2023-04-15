@@ -2,7 +2,9 @@
   <ul class="projects__list">
     <li v-for="project in projects" :key="project.name" class="projects__item">
       <picture class="project" @click="selectProject(project.name)">
-        <img class="project__img" :src="project.openGraphImageUrl" :alt="project.description" />
+        <div class="project__img-wrapper">
+          <img class="project__img" :src="project.openGraphImageUrl" :alt="project.description" />
+        </div>
         <figcaption class="project__name">{{ project.name }}</figcaption>
       </picture>
     </li>
@@ -39,18 +41,24 @@ const { selectProject } = useStack();
   display: flex
   flex-direction: column
 
-  &__img
+  &__img-wrapper
+    +retroFilter
     +border($border-thick)
     +ui-space(bottom, 3)
-
     width: 130px
     height: 130px
-    background-color: #737373
+    background-color: $fallback-color
 
     +breakpoint('md')
       +ui-space(bottom, 2)
       width: 100px
       height: 100px
+
+  &__img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: top left
 
   &__name
     font-weight: 700

@@ -3,7 +3,9 @@
     <div class="container cover__container">
       <div class="cover__avatar">
         <figure class="avatar">
-          <img :src="avatarUrl" :alt="name" class="avatar__image" />
+          <div class="avatar__wrapper">
+            <img :src="avatarUrl" :alt="name" class="avatar__image" />
+          </div>
 
           <figcaption class="avatar__caption">Me</figcaption>
         </figure>
@@ -96,15 +98,21 @@ const { name, bio, avatarUrl } = result.user;
     height: 216px
     padding: 10px
 
-  &__image
+  &__wrapper
+    +retroFilter
     display: block
     width: 316px
     height: 316px
-    background-color: $backup-color
 
     +breakpoint('md')
       width: 158px
       height: 158px
+
+  &__image
+    width: 100%
+    height: 100%
+    background-color: $fallback-color
+
 
   &__caption
     +ui-space(top, 3)
