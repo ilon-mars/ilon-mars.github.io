@@ -60,7 +60,7 @@ defineProps<{
   &__img
     width: 100%
     height: 100%
-    background-color: $backup-color
+    background-color: $fallback-color
     object-fit: cover
     object-position: top left
 

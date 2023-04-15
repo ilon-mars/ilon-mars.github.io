@@ -42,10 +42,11 @@ const { selectProject } = useStack();
   &__img
     +border($border-thick)
     +ui-space(bottom, 3)
-
+    object-fit: cover
+    object-position: top left
     width: 130px
     height: 130px
-    background-color: #737373
+    background-color: $fallback-color
 
     +breakpoint('md')
       +ui-space(bottom, 2)
