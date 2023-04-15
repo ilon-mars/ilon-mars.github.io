@@ -9,6 +9,8 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+env:
+  GRAPHQL_TOKEN: ${{ secrets.GRAPHQL_TOKEN }}
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
@@ -51,6 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-        env:
-          GRAPHQL_TOKEN: ${{ secrets.GRAPHQL_TOKEN }}
-        env_var: ${{ vars.GRAPHQL_ENDPOINT }}
