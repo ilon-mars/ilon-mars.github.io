@@ -100,7 +100,7 @@ const { name, bio, avatarUrl } = result.user;
     display: block
     width: 316px
     height: 316px
-    background: #A7F3D0
+    background-color: $backup-color
 
     +breakpoint('md')
       width: 158px

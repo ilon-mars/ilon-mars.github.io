@@ -1,3 +1,5 @@
+import type { OrderBy, PinnableItemType, OrderDirection, OrderField } from '@/types';
+
 export const stack: string[] = [
   'javascript',
   'vue',
@@ -18,7 +20,11 @@ export const PINNED_ITEMS = 6;
 export const PROJECTS_COUNT = 8;
 
 // for pinned items
-export const PINNABLE_TYPES = 'REPOSITORY';
+export const PINNABLE_TYPES: PinnableItemType = 'REPOSITORY';
 export const LANGUAGES_COUNT = 10;
-export const ORDER_FIELD = 'SIZE';
-export const ORDER_DIRECTION = 'DESC';
+export const ORDER_FIELD: OrderField = 'SIZE';
+export const ORDER_DIRECTION: OrderDirection = 'DESC';
+export const ORDER_BY: OrderBy = {
+  field: ORDER_FIELD,
+  direction: ORDER_DIRECTION,
+};
