@@ -28,3 +28,5 @@ export const ORDER_BY: OrderBy = {
   field: ORDER_FIELD,
   direction: ORDER_DIRECTION,
 };
+
+export const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';

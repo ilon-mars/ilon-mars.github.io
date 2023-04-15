@@ -1,7 +1,8 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core';
+import { GRAPHQL_ENDPOINT } from '@/utils/constants';
 
 const httpLink = createHttpLink({
-  uri: import.meta.env.GRAPHQL_ENDPOINT,
+  uri: GRAPHQL_ENDPOINT,
   headers: {
     Authorization: `Bearer ${import.meta.env.GRAPHQL_TOKEN}`,
   },
