@@ -1,18 +1,24 @@
 <template>
   <li class="repo-card">
-    <a href="" target="_blank" rel="noopener noreferrer" class="repo-card__link">
+    <a :href="repo.url" target="_blank" rel="noopener noreferrer" class="repo-card__link">
       <div class="repo-card__cover">
-        <img class="repo-card__img" />
+        <img class="repo-card__img" :src="repo.coverUrl" :alt="repo.name" />
 
         <ul class="repo-card__tags">
-          <li v-for="lang in repo.languages" :key="lang" class="caption tag">{{ lang }}</li>
+          <li
+            v-for="lang in repo.languages"
+            :key="lang.name"
+            class="caption tag"
+          >
+            {{ lang.name }}
+          </li>
         </ul>
       </div>
 
       <div class="repo-card__description">
         <h3 class="title repo-card__title">{{ repo.name }}</h3>
         <p class="text">{{ repo.description }}</p>
-        <span class="date repo-card__date">Updated at: {{ repo.updated }}</span>
+        <span class="date repo-card__date">Updated at: {{ formatDate(repo.updatedAt) }}</span>
       </div>
     </a>
   </li>
@@ -20,6 +26,7 @@
 
 <script setup lang="ts">
 import type { PinnedRepo } from '@/types';
+import { formatDate } from '@/utils/functions';
 
 defineProps<{
   repo: PinnedRepo;
@@ -53,7 +60,9 @@ defineProps<{
   &__img
     width: 100%
     height: 100%
-    background-color: #737373
+    background-color: $backup-color
+    object-fit: cover
+    object-position: top left
 
     +breakpoint('md')
       height: 195px

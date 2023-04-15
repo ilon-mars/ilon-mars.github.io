@@ -4,7 +4,7 @@
       <h2 class="section-title repo__title">Pinned repos</h2>
 
       <ul class="repo__list">
-        <RepoCard v-for="repo in repos" :key="repo.name" :repo="repo" />
+        <RepoCard v-for="repo in repos" :key="repo.id" :repo="repo" />
       </ul>
     </div>
   </section>
@@ -12,33 +12,13 @@
 
 <script setup lang="ts">
 import RepoCard from '@/components/repo/RepoCard.vue';
+import { useState } from '@/hooks';
+import { normalizeRepos } from '@/utils/functions';
 
-const repos = [
-  {
-    name: 'project name',
-    description: 'project description',
-    languages: ['lang 1', 'lang 2', 'lang 3', 'lang 4', 'lang 5'],
-    updated: '22/12/12',
-  },
-  {
-    name: 'project name 2',
-    description: 'project description',
-    languages: ['lang 1', 'lang 2', 'lang 3', 'lang 4', 'lang 5'],
-    updated: '22/12/12',
-  },
-  {
-    name: 'project name 3',
-    description: 'project description',
-    languages: ['lang 1', 'lang 2', 'lang 3', 'lang 4', 'lang 5'],
-    updated: '22/12/12',
-  },
-  {
-    name: 'project name 4',
-    description: 'project description',
-    languages: ['lang 1', 'lang 2', 'lang 3', 'lang 4', 'lang 5'],
-    updated: '22/12/12',
-  },
-];
+const { result } = useState();
+const { nodes } = result.user.pinnedItems;
+
+const repos = normalizeRepos(nodes);
 </script>
 
 <style lang="sass">

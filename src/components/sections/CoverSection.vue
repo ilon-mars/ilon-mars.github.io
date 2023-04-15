@@ -3,19 +3,29 @@
     <div class="container cover__container">
       <div class="cover__avatar">
         <figure class="avatar">
-          <img src="" alt="An image" class="avatar__image" />
-          <figcaption class="avatar__caption">Caption goes here</figcaption>
+          <img :src="avatarUrl" :alt="name" class="avatar__image" />
+
+          <figcaption class="avatar__caption">Me</figcaption>
         </figure>
       </div>
+
       <div class="cover__description">
-        <h1 class="main-title cover__title">Марьяна Кондакова</h1>
+        <h1 class="main-title cover__title">{{ name }}</h1>
+
         <p class="main-text">
-          Frontend-разработчик. Пишу на Vue 2/3, Typescript. Моя цель — стать fullstack-разработчиком
+          {{ bio }}
         </p>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { useState } from '@/hooks';
+
+const { result } = useState();
+const { name, bio, avatarUrl } = result.user;
+</script>
 
 <style lang="sass">
 .cover
@@ -35,6 +45,7 @@
   &__container
     display: flex
     align-items: center
+    width: 100%
 
     +breakpoint('md')
       flex-direction: column
@@ -89,9 +100,16 @@
     display: block
     width: 316px
     height: 316px
-    background: #A7F3D0
+    background-color: $backup-color
 
     +breakpoint('md')
       width: 158px
       height: 158px
+
+  &__caption
+    +ui-space(top, 3)
+    color: $dark-color
+    font-family: 'Nothing You Could Do', cursive
+    font-size: rem($ui-step-inner * 5)
+    text-align: center
 </style>
