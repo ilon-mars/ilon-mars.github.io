@@ -1,4 +1,4 @@
-import type { PinnedRepo, RepoRaw } from '@/types';
+import type { PinnedRepo, PinnedRepoRaw } from '@/types';
 
 const formatDateNumber = (date: string) => (date.length > 1 ? date : `0${date}`);
 const formatYear = (year: number) => year.toString().substring(2);
@@ -12,7 +12,7 @@ export const formatDate = (date: string) => {
   return `${day}/${month}/${year}`;
 };
 
-export const normalizeRepos = (reposRaw: RepoRaw[]): PinnedRepo[] => {
+export const normalizeRepos = (reposRaw: PinnedRepoRaw[]): PinnedRepo[] => {
   const normalizedRepos = reposRaw.map(repo => ({
     ...repo,
     coverUrl: repo.openGraphImageUrl,

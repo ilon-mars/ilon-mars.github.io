@@ -1,11 +1,14 @@
-import type { OrderBy, PinnableItemType } from '@/types';
+import type { OrderBy, PinnableItemType, PrivacyType } from '@/types';
 
 export const getMe = (
   login: string,
   types: PinnableItemType,
   pinnedFirst: number,
   languagesFirst: number,
-  orderBy: OrderBy
+  orderBy: OrderBy,
+  reposLast: number,
+  privacy: PrivacyType,
+  isFork: boolean
 ) => {
   const query = `
   query MeQuery(
@@ -14,6 +17,9 @@ export const getMe = (
     $pinnedFirst: Int,
     $languagesFirst: Int,
     $orderBy: LanguageOrder
+    $reposLast: Int,
+    $privacy: RepositoryPrivacy,
+    $isFork: Boolean,
     ) {
       user(login: $login) {
         name
@@ -21,6 +27,7 @@ export const getMe = (
         avatarUrl
         url
         email
+
         pinnedItems(types: $types, first: $pinnedFirst) {
           nodes {
             ... on Repository {
@@ -39,11 +46,39 @@ export const getMe = (
             }
           }
         }
+
+        repositories(last: $reposLast, privacy: $privacy, isFork: $isFork) {
+          nodes {
+            description
+            name
+            primaryLanguage {
+              name
+            }
+            languages(first: $languagesFirst, orderBy: $orderBy) {
+              nodes {
+                name
+              }
+            }
+            url
+            updatedAt
+            homepageUrl
+            openGraphImageUrl
+          }
+        }
       }
     }
   `;
 
-  const variables = { login, types, pinnedFirst, languagesFirst, orderBy };
+  const variables = {
+    login,
+    types,
+    pinnedFirst,
+    languagesFirst,
+    orderBy,
+    reposLast,
+    privacy,
+    isFork,
+  };
 
   return { query, variables };
 };

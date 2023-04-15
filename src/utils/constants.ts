@@ -1,4 +1,4 @@
-import type { OrderBy, PinnableItemType, OrderDirection, OrderField } from '@/types';
+import type { OrderBy, PinnableItemType, OrderDirection, OrderField, PrivacyType } from '@/types';
 
 export const stack: string[] = [
   'javascript',
@@ -11,16 +11,9 @@ export const stack: string[] = [
   'graphql',
 ];
 
+export const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
 export const LOGIN = 'ilon-mars';
 
-// github limit
-export const PINNED_ITEMS = 6;
-
-// for projects in stack
-export const PROJECTS_COUNT = 8;
-
-// for pinned items
-export const PINNABLE_TYPES: PinnableItemType = 'REPOSITORY';
 export const LANGUAGES_COUNT = 10;
 export const ORDER_FIELD: OrderField = 'SIZE';
 export const ORDER_DIRECTION: OrderDirection = 'DESC';
@@ -29,4 +22,14 @@ export const ORDER_BY: OrderBy = {
   direction: ORDER_DIRECTION,
 };
 
-export const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
+// github limit
+export const PINNED_ITEMS = 6;
+
+// for pinned items
+export const PINNABLE_TYPES: PinnableItemType = 'REPOSITORY';
+
+// for projects in stack
+export const PROJECTS_COUNT = 8;
+
+export const IS_FORK = false;
+export const PRIVACY: PrivacyType = 'PUBLIC';

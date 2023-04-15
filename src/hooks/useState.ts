@@ -1,6 +1,15 @@
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
-import { LOGIN, PINNABLE_TYPES, PINNED_ITEMS, LANGUAGES_COUNT, ORDER_BY } from '@/utils/constants';
+import {
+  LOGIN,
+  PINNABLE_TYPES,
+  PINNED_ITEMS,
+  LANGUAGES_COUNT,
+  ORDER_BY,
+  PROJECTS_COUNT,
+  PRIVACY,
+  IS_FORK,
+} from '@/utils/constants';
 import { getMe } from '@/utils/graphQueries';
 
 export const useState = () => {
@@ -9,7 +18,10 @@ export const useState = () => {
     PINNABLE_TYPES,
     PINNED_ITEMS,
     LANGUAGES_COUNT,
-    ORDER_BY
+    ORDER_BY,
+    PROJECTS_COUNT,
+    PRIVACY,
+    IS_FORK
   );
 
   const { result, loading, error } = useQuery(

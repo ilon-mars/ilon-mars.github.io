@@ -1,8 +1,6 @@
-type Language = {
-  name: string;
-};
+import type { Language } from '@/types';
 
-export type RepoRaw = {
+export type PinnedRepoRaw = {
   id: string;
   name: string;
   description: string;
