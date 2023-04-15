@@ -2,14 +2,12 @@
   <li class="repo-card">
     <a :href="repo.url" target="_blank" rel="noopener noreferrer" class="repo-card__link">
       <div class="repo-card__cover">
-        <img class="repo-card__img" :src="repo.coverUrl" :alt="repo.name" />
+        <div class="repo-card__img-wrapper">
+          <img class="repo-card__img" :src="repo.coverUrl" :alt="repo.name" />
+        </div>
 
         <ul class="repo-card__tags">
-          <li
-            v-for="lang in repo.languages"
-            :key="lang.name"
-            class="caption tag"
-          >
+          <li v-for="lang in repo.languages" :key="lang.name" class="caption tag">
             {{ lang.name }}
           </li>
         </ul>
@@ -57,15 +55,20 @@ defineProps<{
     position: relative
     overflow: hidden
 
+  &__img-wrapper
+    +retroFilter
+    width: 100%
+    height: 100%
+
+    +breakpoint('md')
+      height: 195px
+
   &__img
     width: 100%
     height: 100%
     background-color: $fallback-color
     object-fit: cover
     object-position: top left
-
-    +breakpoint('md')
-      height: 195px
 
   &__tags
     +ui-space(gap, 2)
