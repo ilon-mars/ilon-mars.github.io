@@ -6,24 +6,16 @@
       class="stack__item"
       :class="{ active: selectedItem === item }"
     >
-      <button class="button" @click="select(item)">{{ item }}</button>
+      <button class="button" @click="selectStack(item)">{{ item }}</button>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useStack } from '@/hooks';
 import { stack } from '@/utils/constants';
 
-const { selectStack } = useStack();
-
-const selectedItem = ref('');
-
-const select = (item: string) => {
-  selectedItem.value = item;
-  selectStack(item);
-};
+const { selectStack, selectedItem } = useStack();
 </script>
 
 <style lang="sass">

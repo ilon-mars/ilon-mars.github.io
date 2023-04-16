@@ -1,9 +1,11 @@
 <template>
   <div class="projects">
     <StackProjectsList v-if="selected.stack.length" :projects="selected.stack" />
-    <p v-else class="text">
+    <p v-else-if="selectedItem" class="text">
       There aren't public projects for this technology for now. But I'm working on it 🧑🏽‍💻
     </p>
+
+    {{ selected.project }}
     <StackProjectDescription v-if="selected.project" :project="selected.project" />
   </div>
 </template>
@@ -13,7 +15,7 @@ import StackProjectsList from '@/components/stack/StackProjectsList.vue';
 import StackProjectDescription from '@/components/stack/StackProjectDescription.vue';
 import { useStack } from '@/hooks';
 
-const { selected } = useStack();
+const { selected, selectedItem } = useStack();
 </script>
 
 <style lang="sass">
