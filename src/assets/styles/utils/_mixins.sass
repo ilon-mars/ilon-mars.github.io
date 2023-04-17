@@ -86,12 +86,12 @@
     +breakpoint(list.nth(list.nth($breakpoints, $i), 1))
       @if(contains($xs-breakpoints, list.nth(list.nth($breakpoints, $i), 1)))
         width: 100%
-        padding: 0 10px
+        padding: 0 $ui-step-outer
 
       @else if(contains($sm-breakpoints, list.nth(list.nth($breakpoints, $i), 1)))
         width: 100%
-        padding: 0 20px
+        padding: 0 $ui-step-outer * 2
 
       @else
-        max-width: list.nth(list.nth($breakpoints, $i - 1), 2)
-        padding: 0
+        max-width: calc(list.nth(list.nth($breakpoints, $i - 1), 2) - 2 * $ui-step-outer * 2)
+        padding: 0 $ui-step-outer * 2

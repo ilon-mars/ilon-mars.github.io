@@ -30,7 +30,7 @@ const { selectProject } = useStack();
     display: grid
     grid-template-columns: repeat(4, 1fr)
 
-    +breakpoint('md')
+    +breakpoint('sm')
       +ui-space(gap, 3)
       grid-template-columns: repeat(2, 100px)
 

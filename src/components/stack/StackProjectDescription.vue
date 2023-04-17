@@ -37,7 +37,7 @@ const languages = computed(() => props.project.languages.nodes.map(node => node.
   display: flex
   flex-direction: column
 
-  +breakpoint('md')
+  +breakpoint('lg')
     +ui-space(top, 6)
     +ui-space(gap, 3)
     margin-left: 0
