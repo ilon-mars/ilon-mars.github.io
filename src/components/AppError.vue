@@ -24,14 +24,14 @@
     animation: glitch-main 1s infinite linear alternate-reverse
 
     &::before
-      +glitchCopy
+      +glitch-copy
       left: 2px
       text-shadow: -2px 0 #ff00c1
       clip: rect(44px, 450px, 56px, 0)
       animation: glitch-before 5s infinite linear alternate-reverse
 
     &::after
-      +glitchCopy
+      +glitch-copy
       left: -2px
       text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1
       animation: glitch-after 1s infinite linear alternate-reverse

@@ -42,7 +42,7 @@ const { selectProject } = useStack();
   flex-direction: column
 
   &__img-wrapper
-    +retroFilter
+    +retro-filter
     +border($border-thick)
     +ui-space(bottom, 3)
     width: 130px

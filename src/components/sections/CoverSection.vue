@@ -99,7 +99,7 @@ const { name, bio, avatarUrl } = result.user;
     padding: 10px
 
   &__wrapper
-    +retroFilter
+    +retro-filter
     display: block
     width: 316px
     height: 316px

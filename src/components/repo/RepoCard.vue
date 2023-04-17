@@ -56,7 +56,7 @@ defineProps<{
     overflow: hidden
 
   &__img-wrapper
-    +retroFilter
+    +retro-filter
     width: 100%
     height: 100%
 
