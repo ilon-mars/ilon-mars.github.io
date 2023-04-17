@@ -33,7 +33,7 @@ const repos = normalizeRepos(nodes);
     display: grid
     grid-template-columns: repeat(2, 1fr)
 
-    +breakpoint('md')
+    +breakpoint('lg')
       display: flex
       flex-direction: column
 </style>

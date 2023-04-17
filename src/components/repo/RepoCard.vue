@@ -37,7 +37,7 @@ defineProps<{
   width: 100%
   min-height: 390px
 
-  +breakpoint('md')
+  +breakpoint('lg')
     min-height: 320px
 
   &__link
@@ -46,7 +46,7 @@ defineProps<{
     display: flex
     color: inherit
 
-    +breakpoint('md')
+    +breakpoint('lg')
       flex-direction: column
 
   &__cover
@@ -56,9 +56,10 @@ defineProps<{
     overflow: hidden
 
   &__img-wrapper
-    +retroFilter
+    +retro-filter
     width: 100%
     height: 100%
+    min-width: 200px
 
     +breakpoint('md')
       height: 195px
@@ -75,16 +76,28 @@ defineProps<{
     position: absolute
     display: flex
     justify-content: center
-    transform: translateY(-50%) rotate(-90deg)
+    transform: rotate(-90deg)
+    transform-origin: top center
     top: 50%
-    right: calc(-50% - $ui-step-inner * 6)
+    right: calc(-50% - $ui-step-inner * 3)
 
-    +breakpoint('md')
+    +breakpoint('xxl')
+      right: calc(-50% - $ui-step-inner * 6)
+
+    +breakpoint('xl')
+      right: calc(-50% - $ui-step-inner * 15)
+
+    +breakpoint('lg')
       transform: translateY(0)
       top: initial
       bottom: $ui-step-inner * 3
       right: 0
       left: 0
+
+    +breakpoint('xs')
+      justify-content: flex-start
+      right: initial
+      left: -$ui-step-inner * 3
 
   &__description
     width: 100%
@@ -93,14 +106,14 @@ defineProps<{
     flex-direction: column
     justify-content: center
 
-    +breakpoint('md')
+    +breakpoint('lg')
       +ui-space(gap, 3)
 
   &__title
     +ui-space(bottom, 3)
     margin-top: auto
 
-    +breakpoint('md')
+    +breakpoint('lg')
       margin: 0
 
   &__date
@@ -113,6 +126,7 @@ defineProps<{
   flex-shrink: 0
   flex-grow: 1
 
-  +breakpoint('md')
+  +breakpoint('lg')
     padding: $ui-step-inner
+    text-align: center
 </style>

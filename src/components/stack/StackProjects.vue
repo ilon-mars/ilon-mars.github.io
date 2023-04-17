@@ -22,6 +22,6 @@ const { selected, selectedProject } = useStack();
   +ui-space(top, 6)
   display: flex
 
-  +breakpoint('md')
+  +breakpoint('lg')
     flex-direction: column
 </style>

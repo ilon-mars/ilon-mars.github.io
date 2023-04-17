@@ -1,3 +1,5 @@
+@use 'sass:list'
+
 @mixin transition($transition: all, $duration: $transition-duration)
   transition-property: $transition
   transition-duration: $duration
@@ -53,7 +55,7 @@
   @if ($direction == all)
     border: $border-size solid $light-color
 
-@mixin glitchCopy
+@mixin glitch-copy
   content: attr(data-text)
   position: absolute
   top: 0
@@ -61,7 +63,7 @@
   width: 100%
   height: 100%
 
-@mixin retroFilter
+@mixin retro-filter
   position: relative
 
   &::before
@@ -76,3 +78,20 @@
     background-repeat: repeat
     background-position: center
     filter: blur(0.05rem) saturate(0.7) contrast(1.5) brightness(1.2)
+
+@mixin container()
+  // it's backwards because of overriding mediaqueries
+  @for $i from length($breakpoints) to 1
+
+    +breakpoint(list.nth(list.nth($breakpoints, $i), 1))
+      @if(contains($xs-breakpoints, list.nth(list.nth($breakpoints, $i), 1)))
+        width: 100%
+        padding: 0 $ui-step-outer
+
+      @else if(contains($sm-breakpoints, list.nth(list.nth($breakpoints, $i), 1)))
+        width: 100%
+        padding: 0 $ui-step-outer * 2
+
+      @else
+        max-width: calc(list.nth(list.nth($breakpoints, $i - 1), 2) - 2 * $ui-step-outer * 2)
+        padding: 0 $ui-step-outer * 2

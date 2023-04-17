@@ -40,23 +40,29 @@ const { name, bio, avatarUrl } = result.user;
   flex-direction: column
   justify-content: center
 
-  +breakpoint('md')
+  +breakpoint('lg')
     padding: $ui-step-outer * 3 $ui-step-outer
     height: initial
 
   &__container
     display: flex
     align-items: center
+    justify-content: center
     width: 100%
 
-    +breakpoint('md')
+    +breakpoint('lg')
       flex-direction: column
 
   &__avatar
     +ui-space(right, 10)
     width: 34%
+    display: flex
+    justify-content: center
 
-    +breakpoint('md')
+    +breakpoint('xl')
+      width: 65%
+
+    +breakpoint('lg')
       width: 100%
       margin-right: 0
       display: flex
@@ -67,7 +73,7 @@ const { name, bio, avatarUrl } = result.user;
   &__description
     padding: 0 20px 0 40px
 
-    +breakpoint('md')
+    +breakpoint('lg')
       padding: 0
 
   &__title
@@ -81,9 +87,12 @@ const { name, bio, avatarUrl } = result.user;
     display: block
     background-color: $light-color
     top: 0
-    left: calc(34% + 30px)
+    right: 60%
 
-    +breakpoint('md')
+    +breakpoint('xl')
+      right: 50%
+
+    +breakpoint('lg')
       display: none
 
 .avatar
@@ -93,18 +102,18 @@ const { name, bio, avatarUrl } = result.user;
   background: #E2E2E2
   transform: rotate(-6.5deg)
 
-  +breakpoint('md')
+  +breakpoint('sm')
     width: 178px
     height: 216px
     padding: 10px
 
   &__wrapper
-    +retroFilter
+    +retro-filter
     display: block
     width: 316px
     height: 316px
 
-    +breakpoint('md')
+    +breakpoint('sm')
       width: 158px
       height: 158px
 
@@ -112,7 +121,6 @@ const { name, bio, avatarUrl } = result.user;
     width: 100%
     height: 100%
     background-color: $fallback-color
-
 
   &__caption
     +ui-space(top, 3)

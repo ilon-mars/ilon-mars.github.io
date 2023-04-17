@@ -30,7 +30,7 @@ const { selectProject } = useStack();
     display: grid
     grid-template-columns: repeat(4, 1fr)
 
-    +breakpoint('md')
+    +breakpoint('sm')
       +ui-space(gap, 3)
       grid-template-columns: repeat(2, 100px)
 
@@ -42,7 +42,7 @@ const { selectProject } = useStack();
   flex-direction: column
 
   &__img-wrapper
-    +retroFilter
+    +retro-filter
     +border($border-thick)
     +ui-space(bottom, 3)
     width: 130px
