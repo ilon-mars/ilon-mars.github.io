@@ -10,7 +10,7 @@ const selected = reactive<{
   project: null,
 });
 
-const selectedItem = ref('');
+const selectedProject = ref('');
 
 export const useStack = () => {
   const { result } = useState();
@@ -21,12 +21,18 @@ export const useStack = () => {
       repo.languages.nodes.find(node => node.name.toLowerCase() === language.toLowerCase())
     );
     selected.project = null;
-    selectedItem.value = language;
+    selectedProject.value = language;
   };
 
   const selectProject = (name: string) => {
     selected.project = selected.stack.find(project => project.name === name)!;
   };
 
-  return { selected, selectStack, selectProject, selectedItem };
+  const removeSelection = () => {
+    selected.stack = [];
+    selected.project = null;
+    selectedProject.value = '';
+  };
+
+  return { selected, selectStack, selectProject, selectedProject, removeSelection };
 };

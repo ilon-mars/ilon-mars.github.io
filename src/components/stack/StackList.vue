@@ -4,7 +4,7 @@
       v-for="item in stack"
       :key="item"
       class="stack__item"
-      :class="{ active: selectedItem === item }"
+      :class="{ active: selectedProject === item }"
     >
       <button class="button" @click="selectStack(item)">{{ item }}</button>
     </li>
@@ -15,7 +15,7 @@
 import { useStack } from '@/hooks';
 import { stack } from '@/utils/constants';
 
-const { selectStack, selectedItem } = useStack();
+const { selectStack, selectedProject } = useStack();
 </script>
 
 <style lang="sass">
