@@ -22,7 +22,7 @@ const { selectStack, selectedProject } = useStack();
 .stack
   &__list
     display: grid
-    grid-template-columns: repeat(5, 1fr)
+    grid-template-columns: repeat(4, 1fr)
     border-top: $border-thick solid $light-color
     border-right: $border-thick solid $light-color
 

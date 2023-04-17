@@ -1,15 +1,6 @@
 import type { OrderBy, PinnableItemType, OrderDirection, OrderField, PrivacyType } from '@/types';
 
-export const stack: string[] = [
-  'javascript',
-  'vue',
-  'typescript',
-  'html',
-  'sass',
-  'pug',
-  'nuxt',
-  'graphql',
-];
+export const stack: string[] = ['javascript', 'vue', 'typescript', 'html', 'sass', 'pug'];
 
 export const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
 export const LOGIN = 'ilon-mars';
