@@ -5,3 +5,6 @@
 
 @function rem($pxValue)
   @return #{math.div(stripUnit($pxValue), stripUnit($base-font-size))}rem
+
+@function contains($list, $item)
+  @return index($list, $item) != null
