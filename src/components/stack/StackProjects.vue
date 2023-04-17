@@ -5,7 +5,6 @@
       There aren't public projects for this technology for now. But I'm working on it 🧑🏽‍💻
     </p>
 
-    {{ selected.project }}
     <StackProjectDescription v-if="selected.project" :project="selected.project" />
   </div>
 </template>
