@@ -23,7 +23,7 @@ const { url, email } = result.user;
 
 const links: SocialLink[] = [
   {
-    name: 'Телеграм',
+    name: 'Telegram',
     link: 'https://t.me/ilon_mars',
     tip: 'Написать',
   },
@@ -33,7 +33,7 @@ const links: SocialLink[] = [
     tip: 'Перейти в профиль',
   },
   {
-    name: 'Почта',
+    name: 'Email',
     link: `mailto:${email}`,
     tip: 'Написать',
   },
@@ -51,7 +51,7 @@ const links: SocialLink[] = [
     display: flex
     justify-content: space-between
 
-    +breakpoint('md')
+    +breakpoint('xs')
       +ui-space(gap, 3)
       flex-direction: column
       align-items: center
