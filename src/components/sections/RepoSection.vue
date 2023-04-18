@@ -29,7 +29,7 @@ const repos = normalizeRepos(nodes);
 
   &__list
     +ui-space(gap, 5)
-
+    height: fit-content
     display: grid
     grid-template-columns: repeat(2, 1fr)
 
