@@ -1,12 +1,12 @@
 <template>
   <ul class="projects__list">
     <li v-for="project in projects" :key="project.name" class="projects__item">
-      <picture class="project" @click="selectProject(project.name)">
-        <div class="project__img-wrapper">
+      <figure class="project" @click="selectProject(project.name)">
+        <picture class="project__img-wrapper">
           <img class="project__img" :src="project.openGraphImageUrl" :alt="project.description" />
-        </div>
+        </picture>
         <figcaption class="project__name">{{ project.name }}</figcaption>
-      </picture>
+      </figure>
     </li>
   </ul>
 </template>
