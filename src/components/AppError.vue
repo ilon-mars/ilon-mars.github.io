@@ -26,16 +26,16 @@
     &::before
       +glitch-copy
       left: 2px
-      text-shadow: -2px 0 #ff00c1
+      text-shadow: -2px 0 $glitch-color-1
       clip: rect(44px, 450px, 56px, 0)
       animation: glitch-before 5s infinite linear alternate-reverse
 
     &::after
       +glitch-copy
       left: -2px
-      text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1
+      text-shadow: -2px 0 $glitch-color-2, 2px 2px $glitch-color-1
       animation: glitch-after 1s infinite linear alternate-reverse
 
   &__message
-    color: #ff00c1
+    color: $glitch-color-1
 </style>
