@@ -16,8 +16,17 @@
       <h3 class="title repo-card__title">{{ repo.name }}</h3>
       <p class="text">{{ repo.description }}</p>
       <span class="repo-card__links"
-        ><a :href="repo.homepageUrl" target="_blank" rel="noopener noreferrer" class="repo-card__link">View app</a
-        >&nbsp;/&nbsp;<a :href="repo.url" target="_blank" rel="noopener noreferrer" class="repo-card__link"
+        ><a
+          :href="repo.homepageUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="repo-card__link link-outline"
+          >View app</a
+        >&nbsp;/&nbsp;<a
+          :href="repo.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="repo-card__link link-outline"
           >View repo</a
         ></span
       >
