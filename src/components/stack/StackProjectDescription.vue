@@ -13,14 +13,15 @@
         :href="project.homepageUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="project-description__link"
-        >View app&nbsp;/&nbsp;</a
+        class="project-description__link link-outline"
+        >View app</a
       >
+      <span v-if="project.homepageUrl">&nbsp;/&nbsp;</span>
       <a
         :href="project.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="project-description__link"
+        class="project-description__link link-outline"
         >View repo</a
       >
     </span>

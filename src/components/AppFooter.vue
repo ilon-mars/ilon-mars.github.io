@@ -7,7 +7,7 @@
         :href="link"
         target="_blank"
         rel="noopener noreferrer"
-        class="link"
+        class="link link-outline"
         >{{ name }}</a
       >
     </div>

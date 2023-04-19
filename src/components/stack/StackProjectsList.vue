@@ -42,17 +42,44 @@ const { selectProject } = useStack();
       grid-template-columns: repeat(2, 100px)
 
   &__item
+    +transition(color)
     cursor: pointer
     max-width: 140px
+    position: relative
 
     +breakpoint('lg')
       max-width: initial
+
+    &::before
+      +transition(width)
+      position: absolute
+      display: block
+      visibility: hidden
+      content: ''
+      width: 0
+      top: -$ui-step-inner * 2
+      left: -$ui-step-inner * 2
+      height: calc(100% + $ui-step-inner * 4)
+      background-color: $light-color
+      z-index: -1
+
+    &:focus-visible
+      outline: none
+      color: $dark-color
+
+      &::before
+        width: calc(100% + $ui-step-inner * 4)
+        visibility: visible
+
+      .project__img-wrapper
+        width: 100%
 
 .project
   display: flex
   flex-direction: column
 
   &__img-wrapper
+    +transition
     +retro-filter
     +border($border-thick)
     +ui-space(bottom, 3)

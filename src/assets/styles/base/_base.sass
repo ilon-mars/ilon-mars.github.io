@@ -101,6 +101,29 @@ html
   +breakpoint('md')
     font-size: rem($ui-step-inner * 3)
 
+.link-outline
+  +transition(color)
+  outline: none
+  position: relative
+
+  &::before, &::after
+    +transition(width)
+    content: ''
+    position: absolute
+    display: block
+    width: 0
+    height: calc(100% + $ui-step-inner * 2)
+    background-color: $light-color
+    z-index: -1
+    top: -$ui-step-inner
+    left: -$ui-step-inner
+
+  &:focus-visible
+    color: $dark-color
+
+    &::before, &::after
+      width: calc(100% + $ui-step-inner * 2)
+
 .caption
   font-size: rem($ui-step-inner * 3)
   text-transform: uppercase
