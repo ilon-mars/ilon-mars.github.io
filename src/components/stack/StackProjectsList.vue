@@ -1,6 +1,14 @@
 <template>
   <TransitionGroup class="projects__list" name="list" tag="ul">
-    <li v-for="project in projects" :key="project.name" class="projects__item">
+    <li
+      v-for="project in projects"
+      :key="project.name"
+      class="projects__item"
+      role="button"
+      aria-pressed="false"
+      tabindex="0"
+      @keyup.enter="selectProject(project.name)"
+    >
       <figure class="project" @click="selectProject(project.name)">
         <picture class="project__img-wrapper">
           <img class="project__img" :src="project.openGraphImageUrl" :alt="project.description" />
