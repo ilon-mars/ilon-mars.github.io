@@ -1,5 +1,5 @@
 <template>
-  <ul class="projects__list">
+  <TransitionGroup class="projects__list" name="list" tag="ul">
     <li v-for="project in projects" :key="project.name" class="projects__item">
       <figure class="project" @click="selectProject(project.name)">
         <picture class="project__img-wrapper">
@@ -8,7 +8,7 @@
         <figcaption class="project__name">{{ project.name }}</figcaption>
       </figure>
     </li>
-  </ul>
+  </TransitionGroup>
 </template>
 
 <script setup lang="ts">
@@ -26,7 +26,6 @@ const { selectProject } = useStack();
 .projects
   &__list
     +ui-space(gap, 5)
-
     display: grid
     grid-template-columns: repeat(4, 1fr)
 
@@ -36,6 +35,10 @@ const { selectProject } = useStack();
 
   &__item
     cursor: pointer
+    max-width: 140px
+
+    +breakpoint('lg')
+      max-width: initial
 
 .project
   display: flex
