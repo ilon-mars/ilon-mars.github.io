@@ -1,24 +1,28 @@
 <template>
   <li class="repo-card">
-    <a :href="repo.url" target="_blank" rel="noopener noreferrer" class="repo-card__link">
-      <div class="repo-card__cover">
-        <div class="repo-card__img-wrapper">
-          <img class="repo-card__img" :src="repo.coverUrl" :alt="repo.name" />
-        </div>
-
-        <ul class="repo-card__tags">
-          <li v-for="lang in repo.languages" :key="lang.name" class="caption tag">
-            {{ lang.name }}
-          </li>
-        </ul>
+    <div class="repo-card__cover">
+      <div class="repo-card__img-wrapper">
+        <img class="repo-card__img" :src="repo.coverUrl" :alt="repo.name" />
       </div>
 
-      <div class="repo-card__description">
-        <h3 class="title repo-card__title">{{ repo.name }}</h3>
-        <p class="text">{{ repo.description }}</p>
-        <span class="date repo-card__date">Updated at: {{ formatDate(repo.updatedAt) }}</span>
-      </div>
-    </a>
+      <ul class="repo-card__tags">
+        <li v-for="lang in repo.languages" :key="lang.name" class="caption tag">
+          {{ lang.name }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="repo-card__description">
+      <h3 class="title repo-card__title">{{ repo.name }}</h3>
+      <p class="text">{{ repo.description }}</p>
+      <span class="repo-card__links"
+        ><a :href="repo.homepageUrl" target="_blank" rel="noopener noreferrer" class="repo-card__link">View app</a
+        >&nbsp;/&nbsp;<a :href="repo.url" target="_blank" rel="noopener noreferrer" class="repo-card__link"
+          >View repo</a
+        ></span
+      >
+      <span class="date repo-card__date">Updated at: {{ formatDate(repo.updatedAt) }}</span>
+    </div>
   </li>
 </template>
 
@@ -36,18 +40,11 @@ defineProps<{
   +border($border-thick)
   width: 100%
   min-height: 390px
+  display: flex
 
   +breakpoint('lg')
     min-height: 320px
-
-  &__link
-    width: 100%
-    height: 100%
-    display: flex
-    color: inherit
-
-    +breakpoint('lg')
-      flex-direction: column
+    flex-direction: column
 
   &__cover
     width: 100%
@@ -100,6 +97,7 @@ defineProps<{
       left: -$ui-step-inner * 3
 
   &__description
+    +ui-space(gap, 4)
     width: 100%
     padding: $ui-step-inner * 3
     display: flex
@@ -118,6 +116,12 @@ defineProps<{
 
   &__date
     margin-top: auto
+
+  &__link
+    font-size: rem($ui-step-inner * 3)
+    line-height: 130%
+    color: inherit
+    text-transform: uppercase
 
 .tag
   +border($border-thin)

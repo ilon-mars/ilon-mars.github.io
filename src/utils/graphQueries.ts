@@ -36,6 +36,7 @@ export const getMe = (
               description
               updatedAt
               url
+              homepageUrl
               openGraphImageUrl
               languages(first: $languagesFirst, orderBy: $orderBy) {
                 nodes {

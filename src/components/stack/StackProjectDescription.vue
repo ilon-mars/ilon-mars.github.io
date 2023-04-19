@@ -7,13 +7,23 @@
     >
     <span class="text">All languages: {{ languages }}</span>
     <span class="date">Last update: {{ formatDate(project.updatedAt) }}</span>
-    <a
-      :href="project.url"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="link project-description__link"
-      >View on GitHub</a
-    >
+    <span class="project-description__links">
+      <a
+        v-if="project.homepageUrl"
+        :href="project.homepageUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-description__link"
+        >View app&nbsp;/&nbsp;</a
+      >
+      <a
+        :href="project.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-description__link"
+        >View repo</a
+      >
+    </span>
   </div>
 </template>
 
@@ -33,7 +43,7 @@ const languages = computed(() => props.project.languages.nodes.map(node => node.
 .project-description
   +ui-space(left, 5)
   +ui-space(gap, 5)
-
+  width: 50%
   display: flex
   flex-direction: column
 
@@ -41,7 +51,14 @@ const languages = computed(() => props.project.languages.nodes.map(node => node.
     +ui-space(top, 6)
     +ui-space(gap, 3)
     margin-left: 0
+    width: 100%
+
+  &__links
+    margin-top: auto
 
   &__link
-    margin-top: auto
+    font-size: rem($ui-step-inner * 3)
+    line-height: 130%
+    color: inherit
+    text-transform: uppercase
 </style>
