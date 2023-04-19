@@ -1,11 +1,15 @@
 <template>
   <div class="projects">
-    <StackProjectsList v-if="selected.stack.length" :projects="selected.stack" />
-    <p v-else-if="selectedProject" class="text">
-      There aren't public projects for this technology for now. But I'm working on it 🧑🏽‍💻
-    </p>
+    <Transition name="fade">
+      <StackProjectsList v-if="selected.stack.length" :projects="selected.stack" />
+      <p v-else-if="selectedProject" class="text">
+        There aren't public projects for this technology for now. But I'm working on it 🧑🏽‍💻
+      </p>
+    </Transition>
 
-    <StackProjectDescription v-if="selected.project" :project="selected.project" />
+    <Transition name="slide">
+      <StackProjectDescription v-if="selected.project" :project="selected.project" />
+    </Transition>
   </div>
 </template>
 

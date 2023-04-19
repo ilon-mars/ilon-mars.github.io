@@ -43,7 +43,7 @@ const languages = computed(() => props.project.languages.nodes.map(node => node.
 .project-description
   +ui-space(left, 5)
   +ui-space(gap, 5)
-  width: 50%
+  width: 40%
   display: flex
   flex-direction: column
 
