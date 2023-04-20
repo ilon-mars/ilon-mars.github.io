@@ -5,7 +5,7 @@ const formatYear = (year: number) => year.toString().substring(2);
 
 export const formatDate = (date: string) => {
   const parsedDate = new Date(Date.parse(date));
-  const day = formatDateNumber(`${parsedDate.getDay()}`);
+  const day = formatDateNumber(`${parsedDate.getDate()}`);
   const month = formatDateNumber(`${parsedDate.getMonth() + 1}`);
   const year = formatYear(parsedDate.getFullYear());
 
