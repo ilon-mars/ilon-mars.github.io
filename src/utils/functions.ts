@@ -21,3 +21,26 @@ export const normalizeRepos = (reposRaw: PinnedRepoRaw[]): PinnedRepo[] => {
 
   return normalizedRepos;
 };
+
+export const updateHead = () => {
+  const changeIcons = (hidden: boolean) => {
+    const favicon = document.head.querySelector('link[rel="icon"]');
+    const appleFavicon = document.head.querySelector('link[rel="apple-touch-icon"]');
+    const pngFavicon = document.head.querySelector('link[type="image/png"]');
+
+    appleFavicon!.setAttribute('href', `/apple-touch-icon${hidden ? '-hidden' : ''}.png`);
+    favicon!.setAttribute('href', `/favicon${hidden ? '-hidden' : ''}.ico`);
+    pngFavicon!.setAttribute('href', `/icon${hidden ? '-hidden' : ''}.png`);
+  };
+
+  const changeTitle = (hidden: boolean) => {
+    document.title = hidden ? 'Okay, bye' : 'Github portfolio';
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    const hidden = document.hidden;
+
+    changeIcons(hidden);
+    changeTitle(hidden);
+  });
+};
