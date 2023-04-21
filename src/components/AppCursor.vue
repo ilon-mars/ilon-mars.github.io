@@ -1,87 +1,77 @@
 <template>
-  <div ref="cursor" class="cursor-wrapper">
-    <div class="cursor" :style="{ transform: transform, display: display }">
-      <div class="cursor-text view">View</div>
+  <div v-if="!isMobile" class="cursor-wrapper">
+    <div class="cursor" :style="{ transform, display }">
+      <div class="cursor-text">{{ label }}</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-const cursor = ref();
+import { useDetectMobile } from '@/hooks';
+
+const { isMobile } = useDetectMobile();
+
 const transform = ref('');
 const display = ref('none');
+const scale = ref('scale3d(0, 0, 1)');
+const label = ref('view');
 
-const moveCursor = e => {
+const moveCursor = (e: MouseEvent) => {
   const mouseY = e.clientY;
   const mouseX = e.clientX;
 
-  transform.value = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  display.value = 'flex';
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  transform.value = `translate3d(${mouseX - vw / 2}px, ${mouseY - vh / 2}px, 0) ${scale.value}`;
+
+  if (e.target && e.target instanceof HTMLElement) {
+    if (e.target.tagName.toLowerCase() === 'a') {
+      display.value = 'flex';
+      scale.value = 'scale3d(1, 1, 1)';
+
+      label.value = e.target.dataset.label || 'view';
+    } else {
+      scale.value = 'scale3d(0, 0, 1)';
+    }
+  }
 };
 
 window.addEventListener('mousemove', moveCursor);
 </script>
 
-<style>
-body {
-  cursor: none;
-}
-.cursor-wrapper {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
+<style lang="sass">
+.cursor-wrapper
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  width: 100%
+  height: 100vh
+  z-index: 102
+  display: flex
+  justify-content: center
+  align-items: center
+  pointer-events: none
+  transition: opacity .3s
 
-.cursor {
-  display: none;
-  overflow: hidden;
-  margin-top: -1rem;
-  margin-left: -1rem;
-  padding: 0.5rem 0.75rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: #191919;
-  font-family: 'Roboto Mono', sans-serif;
-  color: #fff;
-  font-size: 15px;
-  line-height: 120%;
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  will-change: transform;
-  transform-style: preserve-3d;
-}
-
-.cursor-text {
-  display: block;
-}
+.cursor
+  +transition(transform, 0.04s)
+  display: none
+  overflow: hidden
+  padding: $ui-step-inner
+  justify-content: center
+  align-items: center
+  background-color: $dark-color
+  font-family: '3270', sans-serif
+  font-weight: 500
+  color: $light-color
+  font-size: rem($ui-step-outer * 2)
+  text-align: center
+  text-transform: uppercase
+  will-change: transform
+  transform-style: preserve-3d
+  border: $border-thin solid $light-color
 </style>

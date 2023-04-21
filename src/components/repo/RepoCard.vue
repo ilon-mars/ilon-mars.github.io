@@ -127,6 +127,7 @@ defineProps<{
     margin-top: auto
 
   &__link
+    +custom-cursor-pointer
     font-size: rem($ui-step-inner * 3)
     line-height: 130%
     color: inherit
