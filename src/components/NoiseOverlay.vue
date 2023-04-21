@@ -4,7 +4,7 @@
 
 <style lang="sass">
 .noise
-  height: 100vh
+  height: calc(var(--vh, 1vh) * 100)
   pointer-events: none
   position: fixed
   left: 0
