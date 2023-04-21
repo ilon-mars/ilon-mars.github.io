@@ -95,3 +95,7 @@
       @else
         max-width: calc(list.nth(list.nth($breakpoints, $i - 1), 2) - 2 * $ui-step-outer * 2)
         padding: 0 $ui-step-outer * 2
+
+@mixin custom-cursor-pointer
+  @media ($mouse-device)
+    cursor: none

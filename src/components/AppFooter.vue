@@ -2,12 +2,13 @@
   <footer class="footer">
     <div class="container footer__container">
       <a
-        v-for="{ name, link } in links"
+        v-for="{ name, link, tip } in links"
         :key="name"
         :href="link"
         target="_blank"
         rel="noopener noreferrer"
-        class="link link-outline"
+        class="link link-outline footer__link"
+        :data-label="tip"
         >{{ name }}</a
       >
     </div>
@@ -25,17 +26,17 @@ const links: SocialLink[] = [
   {
     name: 'Telegram',
     link: 'https://t.me/ilon_mars',
-    tip: 'Написать',
+    tip: 'Send message',
   },
   {
     name: 'GitHub',
     link: url,
-    tip: 'Перейти в профиль',
+    tip: 'Go to profile',
   },
   {
     name: 'Email',
     link: `mailto:${email}`,
-    tip: 'Написать',
+    tip: 'Send email',
   },
 ];
 </script>
@@ -55,4 +56,7 @@ const links: SocialLink[] = [
       +ui-space(gap, 3)
       flex-direction: column
       align-items: center
+
+  &__link
+    +custom-cursor-pointer
 </style>
