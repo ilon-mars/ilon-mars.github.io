@@ -16,9 +16,9 @@ import { useStack } from '@/hooks';
 
 const { removeSelection } = useStack();
 
-const clickOutside = (ev: MouseEvent | TouchEvent) => {
-  if (ev.target && ev.target instanceof HTMLElement) {
-    if (!(ev.target.closest('.stack__list') || ev.target.closest('.projects'))) removeSelection();
+const clickOutside = (e: MouseEvent | TouchEvent) => {
+  if (e.target && e.target instanceof HTMLElement) {
+    if (!(e.target.closest('.stack__list') || e.target.closest('.projects'))) removeSelection();
   }
 };
 </script>
