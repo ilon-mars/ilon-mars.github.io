@@ -13,6 +13,7 @@
       <AppFooter />
     </main>
   </template>
+  <AppCursor />
 </template>
 
 <script setup lang="ts">
@@ -23,10 +24,8 @@ import AppFooter from '@/components/AppFooter.vue';
 import NoiseOverlay from '@/components/NoiseOverlay.vue';
 import AppLoader from '@/components/AppLoader.vue';
 import AppError from '@/components/AppError.vue';
+import AppCursor from '@/components/AppCursor.vue';
 import { useState } from '@/hooks';
-import { updateHead } from '@/utils/functions';
 
 const { loading, error } = useState();
-
-updateHead();
 </script>
