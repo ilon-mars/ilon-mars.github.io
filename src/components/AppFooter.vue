@@ -44,6 +44,7 @@ const links: SocialLink[] = [
 <style lang="sass">
 .footer
   padding: $ui-step-outer * 4 0
+  border-top: $border-thin solid $light-color
 
   +breakpoint('md')
     padding: $ui-step-outer * 3 $ui-step-outer
