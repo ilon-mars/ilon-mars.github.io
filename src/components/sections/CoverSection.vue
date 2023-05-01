@@ -40,6 +40,10 @@ const { name, bio, avatarUrl } = result.user;
   flex-direction: column
   justify-content: center
 
+  +portrait
+    height: auto
+    min-height: initial
+
   +breakpoint('lg')
     padding: $ui-step-outer * 3 $ui-step-outer
     height: initial

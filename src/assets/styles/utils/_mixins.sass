@@ -99,3 +99,7 @@
 @mixin custom-cursor-pointer
   @media ($mouse-device)
     cursor: none
+
+@mixin portrait
+  @media(orientation: portrait)
+    @content
