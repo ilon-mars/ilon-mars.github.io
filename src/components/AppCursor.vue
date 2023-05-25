@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onUnmounted, ref } from 'vue';
 import { useDetectMobile } from '@/hooks';
 
 const { isMobile } = useDetectMobile();
@@ -39,6 +39,8 @@ const moveCursor = (e: MouseEvent) => {
 };
 
 window.addEventListener('mousemove', moveCursor);
+
+onUnmounted(() => window.removeEventListener('mousemove', moveCursor))
 </script>
 
 <style lang="sass">
