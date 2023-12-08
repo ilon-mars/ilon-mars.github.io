@@ -102,6 +102,10 @@ const { selectProject } = useStack();
     font-weight: 700
     font-size: rem($ui-step-inner * 4)
     line-height: 130%
+    max-width: 130px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
 
     +breakpoint('md')
       font-size: rem($ui-step-inner * 3)
